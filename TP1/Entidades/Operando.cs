@@ -10,42 +10,49 @@ namespace Entidades
     {
         private double numero;
 
-        public Operando()
+        /// <summary>
+        /// Constructor que asigna valor cero al atributo numero
+        /// </summary>
+        public Operando():this(0)
         {
-            this.numero = 0;
+           
         }
 
+        /// <summary>
+        /// Construtor que le asigna el valor recibido por parametro al atributo numero 
+        /// </summary>
+        /// <param name="numero"></param>
         public Operando(double numero)
         {
-
+            this.numero = numero;
         }
 
+        /// <summary>
+        /// Constructor que le asigna el valor recibido por parametro a la propiedad Numero
+        /// </summary>
+        /// <param name="strNumero"></param>
         public Operando(string strNumero)
         {
-
+            this.Numero = strNumero;
         }
 
-
-
-        //medio raro chequearlo
+        /// <summary>
+        /// Asigna un valor al atributo numero previa validacion
+        /// </summary>
         private string Numero
         {         
             set
-            {
-               if( this.ValidarOperando(this.numero.ToString())!=0)
-                {
-                    this.Numero = value;
-
-                }
+            {                          
+             this.numero = this.ValidarOperando(value);               
             }
         }
 
         /// <summary>
         /// Convierte un número(tipo string) del sistema binario al sistema decimal(tipo string).
         /// </summary>
-        /// <param name="numero">Parametro que recibe para ser convertido a Decimal</param>
+        /// <param name="binario">Parametro que recibe para ser convertido a Decimal</param>
         /// <returns>Retorna el número en formato decimal</returns>
-        public string BinarioDecimal(string numero)
+        public string BinarioDecimal(string binario)
         {
             string retorno;
             int resultado;
@@ -54,9 +61,9 @@ namespace Entidades
             retorno = string.Empty;
             resultado = 0;//dejarlo asi
 
-            if (this.EsBinario(numero)==true)
+            if (this.EsBinario(binario)==true)
             {             
-                array = numero.ToCharArray();
+                array = binario.ToCharArray();
 
                 // Invertido  los valores van incrementandose de derecha a izquierda: 16-8-4-2-1
                 Array.Reverse(array);
@@ -161,7 +168,12 @@ namespace Entidades
             }
             return retorno;
         }
-
+       
+        /// <summary>
+        /// Determina si el parametro recibido es un numero binario
+        /// </summary>
+        /// <param name="binario">El parametro recibido</param>
+        /// <returns>Retorna true si el numero es binario,caso contrario retornara false</returns>
         private bool EsBinario(string binario)
         {
             bool retorno;
@@ -182,34 +194,62 @@ namespace Entidades
             return retorno;
         }
 
+        /// <summary>
+        /// Realiza la resta entre n1 y n2 
+        /// </summary>
+        /// <param name="n1">Primer parametro de tipo Operando</param>
+        /// <param name="n2">Segundo parametro de tipo Operando</param>
+        /// <returns>Retorna el resultado de la operacion</returns>
         public static double operator - (Operando n1,Operando n2)
         {
-            double retorno;
-            retorno = 0;
-            return retorno;
+            return n1.numero - n2.numero;
         }
 
+        /// <summary>
+        /// Realiza la multiplicacion entre n1 y n2 
+        /// </summary>
+        /// <param name="n1">Primer parametro de tipo Operando</param>
+        /// <param name="n2">Segundo parametro de tipo Operando</param>
+        /// <returns>Retorna el resultado de la operacion</returns>
         public static double operator *(Operando n1, Operando n2)
         {
-            double retorno;
-            retorno = 0;
-            return retorno;
+            return n1.numero * n2.numero;
         }
 
+        /// <summary>
+        /// Realiza la division entre n1 y n2 
+        /// </summary>
+        /// <param name="n1">Primer parametro de tipo Operando</param>
+        /// <param name="n2">Segundo parametro de tipo Operando</param>
+        /// <returns>Retorna el resultado de la operacion, en caso que el n2 sea cero retornara double.MinValue </returns>
         public static double operator /(Operando n1, Operando n2)
         {
             double retorno;
-            retorno = 0;
+            retorno = double.MinValue;
+
+            if(n2.numero!=0)
+            {             
+                retorno = n1.numero / n2.numero;
+            }           
             return retorno;
         }
 
+        /// <summary>
+        /// Realiza la suma entre n1 y n2 
+        /// </summary>
+        /// <param name="n1">Primer parametro de tipo Operando</param>
+        /// <param name="n2">Segundo parametro de tipo Operando</param>
+        /// <returns>Retorna el resultado de la operacion</returns>
         public static double operator +(Operando n1, Operando n2)
         {
-            double retorno;
-            retorno = 0;
-            return retorno;
+            return n1.numero + n2.numero;
         }
 
+        /// <summary>
+        /// Valida si el parametro de tipo cadena es numerico y lo retorna en formato double
+        /// </summary>
+        /// <param name="strNumero">El parametro recibido</param>
+        /// <returns>Retorna el numero validado,en caso que no sea un numero retorna cero</returns>
         private double ValidarOperando(string strNumero)
         {
             double retorno;
@@ -224,12 +264,8 @@ namespace Entidades
             {
                retorno=0;
             }
-
             return retorno;
         }
-
-
-
     }
 
 }
