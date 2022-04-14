@@ -27,11 +27,8 @@ namespace Entidades
                 case '-':
                     retorno = num1 - num2;
                     break;
-                case '/':
-                    if(num2 !=0)
-                    {
-                        retorno = num1 / num2;
-                    }
+                case '/':                                     
+                     retorno = num1 / num2;                    
                     break;
                 case '*':
                     retorno = num1 * num2;
