@@ -59,7 +59,7 @@ namespace Entidades
             char[] array;
 
             retorno = string.Empty;
-            resultado = 0;//dejarlo asi
+            resultado = 0;
 
             if (this.EsBinario(binario)==true)
             {             

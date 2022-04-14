@@ -46,9 +46,9 @@ namespace MiCalculadora
             // 
             this.lblResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(358, 33);
+            this.lblResultado.Location = new System.Drawing.Point(24, 33);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(100, 48);
+            this.lblResultado.Size = new System.Drawing.Size(434, 48);
             this.lblResultado.TabIndex = 0;
             this.lblResultado.Text = "0";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -115,6 +115,7 @@ namespace MiCalculadora
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnConvertirABinario
             // 
@@ -124,6 +125,7 @@ namespace MiCalculadora
             this.btnConvertirABinario.TabIndex = 7;
             this.btnConvertirABinario.Text = "Convertir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = true;
+            this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
             // 
             // btnConvertirADecimal
             // 
@@ -133,6 +135,7 @@ namespace MiCalculadora
             this.btnConvertirADecimal.TabIndex = 8;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
             this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // lstOperaciones
             // 
