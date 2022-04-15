@@ -126,7 +126,8 @@ namespace MiCalculadora
         }
 
         /// <summary>
-        /// 
+        /// Realiza la operacion entre operandos, antes verifica que los campos esten completos
+        /// tengan formato de numeros y retorna el resultado.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -141,7 +142,7 @@ namespace MiCalculadora
             }
             else
             {
-                if (!Double.TryParse(txtNumero1.Text, out double garbageNumber) || !Double.TryParse(txtNumero2.Text, out garbageNumber) || Double.IsNaN(garbageNumber))
+                if (!Double.TryParse(txtNumero1.Text, out double auxNumero) || !Double.TryParse(txtNumero2.Text, out auxNumero) || Double.IsNaN(auxNumero))
                 {
                     MessageBox.Show("Operandos no validos!Deben ser números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
